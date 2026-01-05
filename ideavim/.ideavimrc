@@ -22,31 +22,34 @@ map Q gq
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
-
-
 """ Idea specific settings ------------------
 set ideajoin
 set ideastatusicon=gray
-
 "set number relativenumber
 set NERDTree
-set easymotion
-set which-key
 set notimeout
+set clipboard+=unnamed
 
+""""""""""""""""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
+nnoremap <Leader>si :action StepInto<CR>
+nnoremap <Leader>so :action StepOver<CR>
+nnoremap <Leader>sO :action StepOut<CR>
+nnoremap <Leader>sr :action Resume<CR>
+nnoremap <Leader>se :action EvaluateExpression<CR>
+""""""""""""""""""""""""""""""""""""""Refactor""""""""""""""""""""""""""""""""
 
-let g:WhichKeyDesc_display="<leader>d Display options"
+nnoremap <Leader>ri :action Inline<CR>
+nnoremap <Leader>rif :action IntroduceField<CR>
+nnoremap <Leader>ric :action IntroduceConstant<CR>
+nnoremap <Leader>rip :action IntroduceParameter<CR>
 
-let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
-let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
-let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
-
+map <leader>rr <Action>(RenameElement)
 
 """"""""""""""""""""""""""""""""""""""Show""""""""""""""""""""""""""""""""
 nnoremap <Leader>sd :action ShowUmlDiagram<CR>
 nnoremap <Leader>th :action TypeHierarchy<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
-nnoremap <Leader>su :action ShowUsages<CR>
+"nnoremap <Leader>fu :action FindUsages<CR>
+"nnoremap <Leader>su :action ShowUsages<CR>
 nnoremap <Leader>mh :action MethodHierarchy<CR>
 nnoremap <Leader>ss :action ShowSettings<CR>
 nnoremap <Leader>sp :action ShowFilePath<CR>
@@ -56,30 +59,20 @@ nnoremap <Leader>jd :action QuickJavaDoc<CR>
 nnoremap <leader>a :action Annotate<CR>
 nnoremap <leader>sn :action ShowNavBar<CR>
 nnoremap <Leader>sb :action ViewBreakpoints<CR>
-nnoremap <leader>sf <Action>(SelectInProjectView)
-
+nnoremap <Leader>sf :action SelectInProjectView<CR>
 "" My Mappings -----------------------------
 
-map J <Plug>(easymotion-j)
-map K <Plug>(easymotion-k)
-map W <Plug>(easymotion-w)
-map B <Plug>(easymotion-b)
-
-map <leader>r <Action>(RenameElement)
 map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
-
 
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
-map <leader>J Ji <ESC>
 
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 nnoremap <Leader>cr :action ChooseRunConfiguration<CR
-
 """"""""""""""""""""""""""""""""""""""Search""""""""""""""""""""""""""""""""
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
@@ -92,7 +85,6 @@ nnoremap gs :action GotoSuperMethod<CR>
 nnoremap ]] :action MethodDown<CR>
 nnoremap [[ :action MethodUp<CR>
 nnoremap gf :NERDTree <CR>
-
 """"""""""""""""""""""""""""""""""""""Fix""""""""""""""""""""""""""""""""
 nnoremap <Leader>fd :action FixDocComment<CR>
 nnoremap <Leader>me :action RenameElement<CR>
@@ -100,3 +92,4 @@ nnoremap <Leader>mf :action RenameFile<CR>
 nnoremap <Leader>fc :action ReformatCode<CR>
 vnoremap <Leader>em :action ExtractMethod<CR>
 vnoremap <Leader>ei :action ExtractInterface<CR>
+
