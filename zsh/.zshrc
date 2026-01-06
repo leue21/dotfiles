@@ -1,6 +1,6 @@
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/philipp/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -19,9 +19,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
-# Aliases
-alias raspi-bolt="ssh admin@raspibolt"
-alias raspi-5="ssh admin@rpi5.local"
+[ -f ~/.custom.zsh ] && source ~/.custom.zsh
+
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -30,6 +29,13 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(zsh -c "aerospace focus --window-id {1}")+abort'
+}
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
