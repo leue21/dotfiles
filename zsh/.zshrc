@@ -47,7 +47,6 @@ source <(fzf --zsh)
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
-export PATH="$PATH:$(go env GOBIN)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
