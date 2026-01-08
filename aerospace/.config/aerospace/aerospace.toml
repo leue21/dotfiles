@@ -134,8 +134,8 @@ on-mode-changed = []
     alt-5 = 'workspace 5'
     alt-y = ['workspace Y', 'layout accordion']
     alt-i = 'workspace I'
-    alt-b = 'workspace B'
-    alt-t = 'workspace T'
+    alt-b = ['exec-and-forget open -b com.brave.Browser', 'workspace B']
+    alt-t = ['exec-and-forget open -b com.mitchellh.ghostty', 'workspace T']
     alt-p = 'workspace P'
     alt-n = 'workspace N'
 
