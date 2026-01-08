@@ -18,6 +18,14 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
+export FZF_CTRL_T_OPTS="\
+--preview '
+if [ -d {} ]; then
+  ls -la {};
+else
+  bat --style=numbers --color=always --line-range :300 {} || file --brief {};
+fi' \
+--preview-window=right:60%"
 
 [ -f ~/.custom.zsh ] && source ~/.custom.zsh
 
