@@ -110,6 +110,35 @@ This file applies to the entire repository unless a subdirectory contains its ow
 
 ---
 
+## Go-Specific Guidelines
+
+### Simplicity & Readability
+- Prefer simple, clear code over cleverness
+- Write code that is easy to understand and maintain
+- Avoid unnecessary abstractions
+
+### Error Handling
+- Handle errors explicitly using `if err != nil`
+- Return errors as the last return value from functions
+- Provide context with error messages
+
+### Concurrency
+- Use goroutines and channels for concurrent operations
+- Prefer channels for communication between goroutines
+- Avoid manual thread management
+
+### Interfaces
+- Use small, focused interfaces
+- Interfaces are satisfied implicitly
+- Prefer accepting interfaces and returning structs
+
+### Testing
+- Use the built-in `testing` package
+- Write table-driven tests for multiple cases
+- Use `go test` to run tests
+
+---
+
 ## macOS-Specific Rules
 - Prefer native tools (`defaults`, `launchctl`)
 - Avoid Linux-only instructions
