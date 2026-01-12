@@ -1,55 +1,30 @@
 let mapleader=" "
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
-
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
 
-" Do incremental searching.
 set incsearch
 
-" Don't use Ex mode, use Q for formatting.
 map Q gq
 
-" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-""" Idea specific settings ------------------
+set highlightedyank
+set commentary
 set ideajoin
 set ideastatusicon=gray
-"set number relativenumber
-set NERDTree
+set number relativenumber
 set notimeout
 set clipboard+=unnamed
 
-""""""""""""""""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""Debug"""""""""""""""""
 nnoremap <Leader>si :action StepInto<CR>
 nnoremap <Leader>so :action StepOver<CR>
 nnoremap <Leader>sO :action StepOut<CR>
 nnoremap <Leader>sr :action Resume<CR>
-nnoremap <Leader>se :action EvaluateExpression<CR>
-""""""""""""""""""""""""""""""""""""""Refactor""""""""""""""""""""""""""""""""
-
+nnoremap <Leader>de :action EvaluateExpression<CR>
+""""""""""""""""""""""""""""""""""""""Refactor"""""""""""""
 nnoremap <Leader>ri :action Inline<CR>
-nnoremap <Leader>rif :action IntroduceField<CR>
-nnoremap <Leader>ric :action IntroduceConstant<CR>
-nnoremap <Leader>rip :action IntroduceParameter<CR>
+nnoremap <leader>rr :action RenameElement<CR>
 
-map <leader>rr <Action>(RenameElement)
-
-""""""""""""""""""""""""""""""""""""""Show""""""""""""""""""""""""""""""""
-nnoremap <Leader>sd :action ShowUmlDiagram<CR>
-nnoremap <Leader>th :action TypeHierarchy<CR>
-"nnoremap <Leader>fu :action FindUsages<CR>
-"nnoremap <Leader>su :action ShowUsages<CR>
+""""""""""""""""""""""""""""""""""""""Show""""""""""""""""
+nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap <Leader>mh :action MethodHierarchy<CR>
 nnoremap <Leader>ss :action ShowSettings<CR>
 nnoremap <Leader>sp :action ShowFilePath<CR>
@@ -60,36 +35,32 @@ nnoremap <leader>a :action Annotate<CR>
 nnoremap <leader>sn :action ShowNavBar<CR>
 nnoremap <Leader>sb :action ViewBreakpoints<CR>
 nnoremap <Leader>sf :action SelectInProjectView<CR>
-"" My Mappings -----------------------------
 
+"" My Mappings -----------------------------
 map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
-
-map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
-
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
-nnoremap <Leader>cr :action ChooseRunConfiguration<CR
-""""""""""""""""""""""""""""""""""""""Search""""""""""""""""""""""""""""""""
+nnoremap <Leader>cr :action ChooseRunConfiguration<CR>
+
+""""""""""""""""""""""""""""""""""""""Search"""""""""""""
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
 nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
-""""""""""""""""""""""""""""""""""""""Jump""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""Jump""""""""""""""
 nnoremap ge :action GotoNextError<CR>
 nnoremap gi :action GotoImplementation<CR>
-nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gS :action GotoSuperMethod<CR>
 nnoremap ]] :action MethodDown<CR>
 nnoremap [[ :action MethodUp<CR>
-nnoremap gf :NERDTree <CR>
-""""""""""""""""""""""""""""""""""""""Fix""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""Fix""""""""""""""
 nnoremap <Leader>fd :action FixDocComment<CR>
-nnoremap <Leader>me :action RenameElement<CR>
 nnoremap <Leader>mf :action RenameFile<CR>
 nnoremap <Leader>fc :action ReformatCode<CR>
 vnoremap <Leader>em :action ExtractMethod<CR>
 vnoremap <Leader>ei :action ExtractInterface<CR>
-
