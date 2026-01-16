@@ -11,19 +11,12 @@ set ideajoin
 set ideastatusicon=gray
 
 set timeout
-set timeoutlen=300
+set timeoutlen=500
 set ttimeout
 set ttimeoutlen=10
 
 set clipboard+=unnamed
 
-
-""""""""""""""""""""""""""""""""""""""Debug"""""""""""""""""
-nnoremap <Leader>si :action StepInto<CR>
-nnoremap <Leader>so :action StepOver<CR>
-nnoremap <Leader>sO :action StepOut<CR>
-nnoremap <Leader>sr :action Resume<CR>
-nnoremap <Leader>de :action EvaluateExpression<CR>
 """"""""""""""""""""""""""""""""""""""Refactor"""""""""""""
 nnoremap <Leader>ri :action Inline<CR>
 nnoremap <leader>rr :action RenameElement<CR>
@@ -42,13 +35,12 @@ nnoremap <Leader>sb :action ViewBreakpoints<CR>
 nnoremap <Leader>sf :action SelectInProjectView<CR>
 
 "" My Mappings -----------------------------
-map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
-nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
-nnoremap <Leader>cr :action ChooseRunConfiguration<CR>
+nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
+nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
 
 """"""""""""""""""""""""""""""""""""""Search"""""""""""""
 nnoremap <Leader>ga :action GotoAction<CR>
@@ -72,4 +64,3 @@ vnoremap <Leader>ei :action ExtractInterface<CR>
 
 " Custom mapping for exiting insert mode
 inoremap jj <Esc>
-

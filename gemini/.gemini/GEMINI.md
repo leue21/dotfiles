@@ -128,9 +128,13 @@ This file applies to the entire repository unless a subdirectory contains its ow
 - Avoid manual thread management
 
 ### Interfaces
+- Use `any` instead of `interface{}` for empty interface
 - Use small, focused interfaces
 - Interfaces are satisfied implicitly
 - Prefer accepting interfaces and returning structs
+
+### Refactoring
+- Always aim to refactor existing code instead of adding new, redundant implementations.
 
 ### Testing
 - Use the built-in `testing` package
