@@ -9,9 +9,14 @@ set highlightedyank
 set commentary
 set ideajoin
 set ideastatusicon=gray
-set number relativenumber
-set notimeout
+
+set timeout
+set timeoutlen=300
+set ttimeout
+set ttimeoutlen=10
+
 set clipboard+=unnamed
+
 
 """"""""""""""""""""""""""""""""""""""Debug"""""""""""""""""
 nnoremap <Leader>si :action StepInto<CR>
@@ -64,3 +69,7 @@ nnoremap <Leader>mf :action RenameFile<CR>
 nnoremap <Leader>fc :action ReformatCode<CR>
 vnoremap <Leader>em :action ExtractMethod<CR>
 vnoremap <Leader>ei :action ExtractInterface<CR>
+
+" Custom mapping for exiting insert mode
+inoremap jj <Esc>
+
