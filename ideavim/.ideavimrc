@@ -1,66 +1,93 @@
 let mapleader=" "
 set scrolloff=5
 
-set incsearch
-
-map Q gq
-
-set highlightedyank
+" --- Plugins ---
+set surround
+set multiple-cursors
+set argtextobj
+set textobj-entire
 set commentary
+set highlightedyank
+
+" --- Visuals ---
+set showmode
+set showcmd
 set ideajoin
 set ideastatusicon=gray
 
+" --- Search ---
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nnoremap <esc> :noh<return><esc>
+" Keep search matches centered
+nnoremap n nzz
+nnoremap N Nzz
+
+" --- Basic Settings ---
+map Q gq
 set timeout
 set timeoutlen=500
 set ttimeout
 set ttimeoutlen=10
-
 set clipboard+=unnamed
 
-""""""""""""""""""""""""""""""""""""""Refactor"""""""""""""
+" --- Editing ---
+" Consistent Yank (Y behaves like C and D)
+nnoremap Y y$
+" Indent without losing selection
+vnoremap < <gv
+vnoremap > >gv
+" Paste in visual mode without copying replaced text
+xnoremap p "_dP
+
+" --- Refactor ---
 nnoremap <Leader>ri :action Inline<CR>
 nnoremap <leader>rr :action RenameElement<CR>
 
-""""""""""""""""""""""""""""""""""""""Show""""""""""""""""
+" --- Show / Info ---
 nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap <Leader>mh :action MethodHierarchy<CR>
-nnoremap <Leader>ss :action ShowSettings<CR>
 nnoremap <Leader>sp :action ShowFilePath<CR>
 nnoremap <Leader>se :action ShowErrorDescription<CR>
-nnoremap <Leader>rf :action RecentFiles<CR>
 nnoremap <Leader>jd :action QuickJavaDoc<CR>
 nnoremap <leader>a :action Annotate<CR>
 nnoremap <leader>sn :action ShowNavBar<CR>
 nnoremap <Leader>sb :action ViewBreakpoints<CR>
 nnoremap <Leader>sf :action SelectInProjectView<CR>
 
-"" My Mappings -----------------------------
-map <leader>z <Action>(ToggleDistractionFreeMode)
-map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>o <Action>(FileStructurePopup)
+" Quick Info
+nnoremap K :action QuickImplementations<CR>
+nnoremap <Leader>lh :action ShowHoverInfo<CR>
+
+" --- Splits ---
+nnoremap <C-w>v :action SplitVertically<CR>
+nnoremap <C-w>s :action SplitHorizontally<CR>
+nnoremap <C-w>c :action UnsplitAll<CR>
+" Window navigation (Ctrl+h/j/k/l)
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" --- My Mappings ---
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>h :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>o :action FileStructurePopup<CR>
+nnoremap <leader>r :action ContextRun<CR>
+nnoremap <leader>d :action ContextDebug<CR>
 nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
 nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
 
-""""""""""""""""""""""""""""""""""""""Search"""""""""""""
-nnoremap <Leader>ga :action GotoAction<CR>
-nnoremap <Leader>gc :action GotoClass<CR>
-nnoremap <Leader>gf :action GotoFile<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-
-""""""""""""""""""""""""""""""""""""""Jump""""""""""""""
-nnoremap ge :action GotoNextError<CR>
+" --- Navigation / Jump ---
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gS :action GotoSuperMethod<CR>
 nnoremap ]] :action MethodDown<CR>
 nnoremap [[ :action MethodUp<CR>
 
-""""""""""""""""""""""""""""""""""""""Fix""""""""""""""
-nnoremap <Leader>fd :action FixDocComment<CR>
-nnoremap <Leader>mf :action RenameFile<CR>
-nnoremap <Leader>fc :action ReformatCode<CR>
-vnoremap <Leader>em :action ExtractMethod<CR>
-vnoremap <Leader>ei :action ExtractInterface<CR>
-
-" Custom mapping for exiting insert mode
+" --- Insert Mode ---
 inoremap jj <Esc>
